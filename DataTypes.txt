@@ -1,0 +1,16 @@
+
+        static void Main(string[] args)
+        {
+            string s = Console.ReadLine();
+            if (s == s.ToLower())
+            {
+                Console.WriteLine("lower-case");
+            }
+            else
+            {
+                Console.WriteLine("upper-case");
+            }
+        }
+
+    
+
