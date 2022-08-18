@@ -1,0 +1,231 @@
+List<string> list = new List<string>();
+            int n = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < n; i++)
+            {
+                string name = Console.ReadLine();
+                list.Add(name);
+            }
+
+             list.Sort();
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine($"{i+1}.{list[i]}");
+                
+            }
+
+---
+
+List<int> list = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+            List<int> list2 = new List<int>();   
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] > 0)
+                {
+                    list2.Add(list[i]);
+                }                                        
+                                           
+            }                   
+      
+            if (list2.Count==0)
+            {Console.WriteLine("empty");
+
+            }
+            else
+            {
+                list2.Reverse();
+                Console.WriteLine(String.Join(" ",list2));                  
+            }
+
+---
+
+List<int> list = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+
+                if (line=="end")
+                {
+                    break;
+                }
+                string[] tokes = line.Split(" ");
+                if (tokes[0]=="Add")
+                {
+                    int numberadd = int.Parse(tokes[1]);
+                    list.Add(numberadd);
+                }
+                if (tokes[0]=="Remove")
+                {
+                    int numberremove=int.Parse(tokes[1]);
+                    list.Remove(numberremove);  
+                }
+                if (tokes[0]=="RemoveAt")
+                {
+                    int indexofnumber = int.Parse(tokes[1]);
+                    list.RemoveAt(indexofnumber);
+                }
+                if (tokes[0]=="Insert")
+                {
+                    int numberinsert = int.Parse(tokes[1]);
+                    int indexinsert=int.Parse(tokes[2]);
+                    list.Insert(indexinsert,numberinsert); 
+                    
+                }
+
+
+            }
+            Console.WriteLine(String.Join(" ",list));
+            
+
+---
+
+ List<int> list = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+            bool IsChanged = false;
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+
+                if (line=="end")
+                {
+                    break;
+                }
+                string[] tokes = line.Split(" ");
+
+                if (tokes[0] == "Add")
+                {
+                    int numberadd = int.Parse(tokes[1]);
+                    list.Add(numberadd);
+                    IsChanged = true;
+                }
+                if (tokes[0] == "Remove")
+                {
+                    int numberremove = int.Parse(tokes[1]);
+                    list.Remove(numberremove);
+                    IsChanged = true;
+
+                }
+                if (tokes[0] == "RemoveAt")
+                {
+                    int indexofnumber = int.Parse(tokes[1]);
+                    list.RemoveAt(indexofnumber);
+                    IsChanged = true;
+
+                }
+                if (tokes[0] == "Insert")
+                {
+                    int numberinsert = int.Parse(tokes[1]);
+                    int indexinsert = int.Parse(tokes[2]);
+                    list.Insert(indexinsert, numberinsert);
+                    IsChanged = true;
+
+
+                }
+                if (tokes[0]== "Contains")
+                {
+                    int contaier = int.Parse(tokes[1]);
+
+                    if (list.Contains(contaier))
+                    {
+                        Console.WriteLine("Yes");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No such number");
+                    }
+                        
+                              
+                }
+                if (tokes[0]=="PrintOdd")
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (list[i]%2!=0)
+                        {
+                            Console.Write($"{list[i]} ");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                if (tokes[0] == "PrintEven")
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (list[i] % 2 == 0)
+                        {
+                            Console.Write($"{list[i]} ");
+                        }
+                    }
+                    Console.WriteLine();
+
+                }
+                if (tokes[0] == "GetSum")
+                {
+                    Console.WriteLine(list.Sum());
+                }
+                if (tokes[0] == "Filter")
+                {
+                    int currentsumber = int.Parse(tokes[2]);
+                    if (tokes[1]=="<")
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (currentsumber > list[i])
+                            {
+                                Console.Write(list[i]+" ");
+                            }
+                        }
+                        Console.WriteLine();
+
+                    }
+                    else if (tokes[1] == ">")
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (currentsumber < list[i])
+                            {
+                                Console.Write(list[i]+" ");
+                            }
+                        }
+                        Console.WriteLine();
+
+                    }
+                    else if (tokes[1] == ">=")
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (currentsumber <= list[i])
+                            {
+                                Console.Write(list[i]+" ");
+                            }
+                        }
+                        Console.WriteLine();
+
+
+                    }
+                    else if (tokes[1] == "<=")
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (currentsumber >= list[i])
+                            {
+                                Console.Write(list[i] + " ");
+                            }
+                        }
+                        Console.WriteLine();
+
+                    }
+
+                }
+
+
+            }
+            if (IsChanged)
+            {
+                Console.WriteLine(String.Join(" ", list));
+            }
