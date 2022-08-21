@@ -1,0 +1,363 @@
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = Console.ReadLine();
+            string[] words = s.Split(" ");
+            Random random = new Random();
+            
+
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                int n =random.Next(0,words.Length);
+                string currwnt=words[i];
+                words[i] = words[n];
+                words[n] = currwnt;
+                
+                
+            }
+
+
+
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                Console.WriteLine(words[i]);
+            }
+
+
+
+
+        }
+    }
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            BigInteger big = 1;
+            for (int i = 1; i <=n; i++)
+            {
+                big *= i;
+            }
+            Console.WriteLine(big);
+
+
+            
+
+
+
+
+        }
+    }
+}
+///////////////////////////////////////////////////////////
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Songs
+    {
+        public string Typelist { get; set; }
+        public string Name { get; set; }
+        public string Time { get; set; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Songs> list = new List<Songs>();
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                string s= Console.ReadLine();
+                string[] words = s.Split("_");
+                Songs currentSong = new Songs();
+                currentSong.Typelist = words[0];
+                currentSong.Name = words[1];
+                currentSong.Time = words[2];
+                list.Add(currentSong);
+
+            }
+            string type = Console.ReadLine();
+            if (type=="all")
+            {
+                foreach (Songs currentSong in list)
+                {
+                    
+                        Console.WriteLine(currentSong.Name);
+                    
+                }
+            }
+            else
+            {
+                foreach (Songs currentSong in list)
+                {
+                    if (type == currentSong.Typelist)
+                    {
+                        Console.WriteLine(currentSong.Name);
+                    }
+                }
+            }
+            
+            
+               
+            
+
+
+
+
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Students
+    {
+        public string Name { get; set; }
+        public string Lastname { get; set; }
+        public string Age    { get; set; }
+        public string Hometown { get; set; }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           List<Students> students = new List<Students>();
+
+            string str = Console.ReadLine();
+
+
+            while (str!="end")
+            {
+                string[] str2 = str.Split(" ");
+                Students stud= new Students();
+                stud.Name = str2[0];
+                stud.Lastname = str2[1];
+                stud.Age = str2[2];
+                stud.Hometown = str2[3];
+                students.Add(stud);
+                str = Console.ReadLine();
+            }
+
+            string town = Console.ReadLine();
+            for (int i = 0; i < students.Count; i++)
+            {
+                if (students[i].Hometown==town)
+                {
+
+                    Console.WriteLine($"{students[i].Name} {students[i].Lastname} is {students[i].Age} years old.");
+                }
+            }
+            
+
+
+
+
+        }
+    }
+}
+///////////////////////////////////////////////////////////
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            {
+                string command = "";
+                var students = new List<Student>();
+                while ((command = Console.ReadLine()) != "end")
+                {
+                    string[] array = command.Split();
+                    string firstName = array[0];
+                    string lastName = array[1];
+                    int age = int.Parse(array[2]);
+                    string city = array[3];
+
+                    if (IsStudentExisting(students, firstName, lastName))
+                    {
+
+                        var student = GetStudent(students, firstName, lastName, age);
+                    }
+                    else
+                    {
+                        var student = new Student()
+                        {
+                            FirstName = firstName,
+                            LastName = lastName,
+                            Age = age,
+                            City = city,
+
+                        };
+                        students.Add(student);
+                    }
+                }
+                string filterCity = Console.ReadLine();
+                var filteredStudents = students.Where(s => s.City == filterCity).ToList();
+
+                foreach (Student student in filteredStudents)
+                {
+
+                    Console.WriteLine($"{student.FirstName} {student.LastName} is {student.Age} years old.");
+                }
+            }
+
+            static bool IsStudentExisting(List<Student> students, string firstName, string lastName)
+            {
+                foreach (Student student in students)
+                {
+                    if (student.FirstName == firstName && student.LastName == lastName)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            static Student GetStudent(List<Student> students, string firstName, string lastName, int age)
+            {
+                Student existingStudent = null;
+                foreach (Student student in students)
+                {
+                    if (student.FirstName == firstName && student.LastName == lastName)
+                    {
+                        existingStudent = student;
+                        existingStudent.Age = age;
+                    }
+                }
+                return existingStudent;
+            }
+        }
+        class Student
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public int Age { get; set; }
+            public string City { get; set; }
+        }
+
+    }
+
+}//////////////////////////////////////////////////////////////
+using System;
+using System.Numerics;
+using System.Collections.Generic;
+using System.Linq;
+namespace SoftUniExercises
+{
+    class Truck
+    {
+        public string Brand { get;set; }
+        public string Model { get; set; }
+        public string Weight { get; set; }
+
+
+    }
+    class Car
+    {
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public string HorsePower { get; set; }
+
+
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Car> cars = new List<Car>();
+            List<Truck> trucks = new List<Truck>();
+
+            string input = Console.ReadLine();
+
+
+            while (input!="end")
+            {
+
+                string[] inPutSplit = input.Split('/');
+
+                if (inPutSplit[0]=="Car")
+                { 
+                    Car car=new Car();
+                    car.Brand = inPutSplit[1];  
+                    car.Model = inPutSplit[2];  
+                    car.HorsePower= inPutSplit[3];
+                    cars.Add(car);
+
+                }
+                if (inPutSplit[0]=="Truck")
+                {
+                    Truck truck = new Truck();
+                    truck.Brand=inPutSplit[1];
+                    truck.Model = inPutSplit[2];
+                    truck.Weight = inPutSplit[3];
+                    trucks.Add(truck);
+                }
+
+                input = Console.ReadLine();
+
+            }
+            List<Car> sortedCars = cars.OrderBy(x => x.Brand).ToList();
+            List<Truck> sortedTrucks = trucks.OrderBy(x => x.Brand).ToList();
+
+            
+
+            if (sortedCars.Count>0)
+            {
+                Console.WriteLine("Cars:");
+                foreach (Car car in sortedCars)
+                {
+                    Console.WriteLine($"{car.Brand}: {car.Model} - {car.HorsePower}hp");
+                }
+            }
+            if (sortedTrucks.Count > 0)
+            {
+                Console.WriteLine("Trucks:");
+                foreach (Truck truck in trucks)
+                {
+                    Console.WriteLine($"{truck.Brand}: {truck.Model} - {truck.Weight}kg");
+                }
+            }
+
+
+
+
+
+
+        }
+
+    }
+
+}
