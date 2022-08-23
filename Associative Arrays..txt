@@ -1,0 +1,186 @@
+List < double> list = Console.ReadLine().Split().Select(double.Parse).ToList();
+
+            SortedDictionary<double, int> dict = new SortedDictionary<double, int>();
+
+            foreach (var item in list)
+            {
+                if (dict.ContainsKey(item))
+                {
+                    dict[item]++;
+                }
+                else
+                {
+                    dict.Add(item, 1);
+                }   
+            }
+            
+            foreach (var item in dict)
+            {
+                Console.WriteLine($"{item.Key} -> { item.Value}");
+            }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+  string input = Console.ReadLine().ToLower();
+
+            string[] splited = input.Split(" ");
+            
+            Dictionary<string,int> words = new Dictionary<string, int>();
+
+            for (int i = 0; i < splited.Length; i++)
+            {
+
+                if (words.ContainsKey(splited[i]))
+                {
+                    words[splited[i]]++;
+                }
+                else
+                {
+                    words.Add(splited[i], 1);
+                }
+
+
+            }
+
+            foreach (var item in words)
+            {
+                if (item.Value%2!=0)
+                {
+                    Console.Write($"{item.Key} ");
+                }
+            }
+///////////////////////////////////////////////////////////////////////////////////
+ Dictionary<string, List<string>> words = new Dictionary<string, List<string>>();
+            int countLine = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < countLine; i++)
+            {
+                string word = Console.ReadLine();
+                string sinoonim = Console.ReadLine();
+                if (words.ContainsKey(word))
+                {
+                    words[word].Add(sinoonim);
+                }
+                else
+                {
+                    words.Add(word, new List<string>());
+                    words[word].Add(sinoonim);
+                }
+
+            }
+
+            foreach (var curentword in words)
+            {
+                Console.WriteLine($"{curentword.Key} - {String.Join(", ", curentword.Value)}");
+////////////////////////////////////////////////////////////////////////////////////////////
+ string[] input = Console.ReadLine().Split().Where(x=>x.Length%2==0).ToArray();
+            for (int i = 0; i < input.Length; i++)
+            {
+                Console.WriteLine(input[i]);
+            }
+/////////////////////////////////////////////////////////////////////////////////////////////
+ Dictionary<char, int> output = new Dictionary<char, int>();
+
+            string[] input = Console.ReadLine().Split();
+            int value = 1;
+            for (int i = 0; i < input.Length; i++)
+            {
+                string splitetd = input[i];
+
+                for (int j = 0; j < splitetd.Length; j++)
+                {
+                    if (output.ContainsKey(splitetd[j]))
+                    {
+                        output[splitetd[j]]+=value;
+
+                    }
+                    else
+                    {
+                        output.Add(splitetd[j], 1);
+
+                    }
+                }
+
+            }
+            foreach (var item in output)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            /////////////////////////////////////////////////////////////////////////////////////////
+
+ static void Main(string[] args)
+        {
+            Dictionary<string, int> output = new Dictionary<string, int>();
+            string inout = Console.ReadLine();
+
+            while (inout!="stop")
+            {
+                int value = int.Parse(Console.ReadLine());
+
+                if (output.ContainsKey(inout))
+                {
+                    output[inout] += value;
+
+                }
+                else
+                {
+                    output.Add(inout, value);
+                }
+                
+
+
+
+                inout = Console.ReadLine();
+
+            }
+
+
+            foreach (var item in output)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+/////////////////////////////////////////////////////////////////////////////////////
+static void Main(string[] args)
+        {
+            Dictionary<string, List<string>> output = new Dictionary<string,List<string>>();
+            string input = Console.ReadLine();
+
+          
+            while (input!="End")
+            {
+                 string []spilInout = input.Split(" -> ");
+                string comapany = spilInout[0];
+                string empl = spilInout[1];
+                if (!output.ContainsKey(comapany))
+                {
+                    output.Add(comapany, new List<string>());
+                    output[comapany].Add(empl);
+
+                }
+                else
+                {
+                    if (output[comapany].Contains(empl))
+                    {
+                        
+                    }
+                    else
+                    {
+                        output[comapany].Add(empl);
+                    }
+                   
+
+                }
+               
+                input = Console.ReadLine();
+
+            }
+
+
+            foreach (var item in output)
+            {
+                Console.WriteLine(item.Key);
+                foreach (string id in item.Value)
+                {
+                    Console.WriteLine($"-- {id}");
+                }
+            }
+            
