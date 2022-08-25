@@ -1,8 +1,0 @@
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\bin\Debug\MatrichniIgri.exe.config
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\bin\Debug\MatrichniIgri.exe
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\bin\Debug\MatrichniIgri.pdb
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\obj\Debug\MatrichniIgri.csproj.AssemblyReference.cache
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\obj\Debug\MatrichniIgri.csproj.SuggestedBindingRedirects.cache
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\obj\Debug\MatrichniIgri.csproj.CoreCompileInputs.cache
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\obj\Debug\MatrichniIgri.exe
-C:\Users\Simitchiev\source\repos\MatrichniIgri\MatrichniIgri\obj\Debug\MatrichniIgri.pdb
